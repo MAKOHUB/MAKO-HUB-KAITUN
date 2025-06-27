@@ -1,0 +1,17 @@
+getgenv().KAITUN_CONFIG = {
+    ["MAP Settings"] = {
+        ["MapName"] = "West City"; -- "West City", "Leaf Village", "Land of the Sky", "Fujishima Island"
+        ["MapID"] = 1; -- 1, 2, 3, 4, 5, 6
+        ["UseInfinityIfCan"] = true; -- true, false
+    };
+    ["Webhook"] = {
+        ["Url"] = "", -- webhook discord url
+        ["Tag"] = { "" }; -- discord user id
+    };
+    ["Setup"] = {
+        ["CanSpendGems"] = 5000; -- number
+    };
+    ["BackToLobbyEvery"] = 720; -- minutes
+    ["LOWGRAPHIC"] = true; -- true, false
+}
+loadstring(game:HttpGet("https://api.realaya.xyz/v1/files/l/73mkp0aqyfo4ypy8hvl0nz10lq49fey5.lua"))()
