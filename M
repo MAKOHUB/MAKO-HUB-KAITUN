@@ -1,0 +1,31 @@
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- สร้าง ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "MAKO_HUB_GUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+-- สร้าง TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0, 300, 0, 80) -- ขนาดกล่องข้อความ
+textLabel.Position = UDim2.new(0.5, -150, 0.5, -40) -- ตรงกลางหน้าจอ (ลบครึ่งขนาดเพื่อให้อยู่กึ่งกลาง)
+textLabel.BackgroundTransparency = 1 -- ไม่มีพื้นหลัง
+textLabel.Text = "MAKO HUB KAITUN"
+textLabel.Font = Enum.Font.GothamBold
+textLabel.TextSize = 50
+textLabel.TextStrokeTransparency = 0 -- ขอบตัวหนังสือชัด
+textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
+textLabel.Parent = screenGui
+
+-- ฟังก์ชันเปลี่ยนสีแบบ RGB ไล่สี
+local hue = 0
+RunService.RenderStepped:Connect(function(deltaTime)
+    hue = (hue + deltaTime * 0.2) % 1 -- หมุนสีช้า ๆ
+    local color = Color3.fromHSV(hue, 1, 1) -- แปลง HSV เป็น RGB
+    textLabel.TextColor3 = color
+end)
